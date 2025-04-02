@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Match Probability Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Team Match Probability Analyzer</h1>
+    </header>
+
+    <main>
+
+        <!-- Share URL Section -->
+        <section class="url-section">
+            <div class="container">
+                <div id="urlInfo" class="url-info">
+                    <h3>Share this configuration</h3>
+                    <p>Use this URL to share your current player configuration:</p>
+                    <div id="shareUrl" class="url-link"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Player Selection Section -->
+        <section class="player-selection-section">
+            <div class="container">
+                <div class="team-container">
+                    <div class="team">
+                        <div class="team-header">
+                            <h2>Home Team (ABC)</h2>
+                            <button id="addHomePlayer">Add Player</button>
+                        </div>
+                        <div id="homePlayerSelections">
+                            <!-- Player selections will be inserted here -->
+                        </div>
+                    </div>
+
+                    <div class="team">
+                        <div class="team-header">
+                            <h2>Away Team (XYZ)</h2>
+                            <button id="addAwayPlayer">Add Player</button>
+                        </div>
+                        <div id="awayPlayerSelections">
+                            <!-- Player selections will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategy Analysis Section - Simplified -->
+        <section class="analysis-section">
+            <div class="container">
+                <h2>Strategy Suggestions</h2>
+
+                <!-- Strategy Cards Container - Now display only -->
+                <div class="strategy-cards-container">
+                    <!-- Strategy cards will be generated here -->
+                </div>
+
+                <!-- Detailed Arrangement Analysis -->
+                <div class="arrangement-analysis">
+                    <h3>Win Probabilities For All Permutations</h3>
+                    <div class="heatmap-container">
+                        <!-- Heatmap and explanations will be rendered here -->
+                    </div>
+                </div>
+
+                <!-- Multi-Match Strategy Details -->
+                <div id="strategyDetails" class="strategy-details">
+                    <!-- Multi-match details will be displayed here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Section -->
+        <section class="info-section">
+            <div class="container">
+                <h2>How It Works</h2>
+                <p>This analyzer calculates the probability of winning each match using the formula:</p>
+                <p><strong>P(Player1 wins) = 1 / (1 + 10^((Rating2 - Rating1) / 200))</strong></p>
+                <p>For doubles matches, the average rating of each pair is used.</p>
+                <p>The analyzer considers all 6 possible permutations of your three players in positions A, B, C against all 6 possible permutations of the opponent's players in positions X, Y, Z.</p>
+
+                <!-- Added additional explanation of the interface -->
+                <h3>Understanding the Interface</h3>
+                <p>The interface consists of three main sections:</p>
+                <ol>
+                    <li><strong>Strategy Cards:</strong> Each card shows a recommended strategy based on different optimization criteria. Click on a strategy card to see detailed probabilities for that home team arrangement.</li>
+                    <li><strong>Win Probability Heatmap:</strong> Shows the win probability for every possible arrangement of your team against every possible arrangement of the opponent team. Click on any row or column header to view detailed match probabilities for that selection.</li>
+                    <li><strong>Match Probabilities:</strong> Shows detailed probabilities for multiple matchups based on your selection in the heatmap. Matches are sorted by win probability (highest first).</li>
+                </ol>
+
+                <h3>The Three Strategies</h3>
+                <ul>
+                    <li><strong>Minimax:</strong> Uses the minimax principle to maximize your minimum win probability regardless of opponent permutation.</li>
+                    <li><strong>Opponents 1-2-3:</strong> Maximizes your win probability against an opponent using the standard 1-2-3 permutation.</li>
+                    <li><strong>Opponents averaged:</strong> Maximizes your average win probability across all possible opponent permutations.</li>
+                </ul>
+
+                <h3>Using URL Parameters</h3>
+                <p>You can specify players and their ratings in the URL, e.g.:</p>
+                <code>?homeJohn=1500&homeMary=1400&awayTom=1600&awaySarah=1450</code>
+                <p>Player names are prefixed with "home" or "away" to indicate their team.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
